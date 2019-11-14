@@ -1,0 +1,164 @@
+/* @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap'); */
+@import '~@fullcalendar/core/main.css';
+@import '~@fullcalendar/daygrid/main.css';
+@import '~@fullcalendar/timegrid/main.css';
+@import '~@fullcalendar/list/main.css';
+
+$theme-colors: (
+  'primary': white,
+);
+
+@import '~bootstrap/scss/bootstrap.scss';
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~@fullcalendar/bootstrap/main.css';
+
+.input-group-text {
+  background-color: white;
+  border: none;
+}
+
+.form-control {
+  border: none !important;
+  outline: none;
+  box-shadow: none !important;
+  font-size: 0.8rem;
+  width: 250px !important;
+}
+
+$logoBgColor: rgb(60, 59, 83);
+$contentBgColor: rgb(240, 240, 247);
+$navBgColor: rgb(67, 66, 93);
+$mainColor: rgb(231, 228, 228);
+$iconColor: rgb(165, 164, 191);
+$sidePadding: 0 20px;
+$activeColor: rgb(163, 160, 251);
+$headerBgColor: rgb(245, 246, 250);
+$headerTextColor: rgb(182, 183, 187);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none !important;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.calendar-wrapper {
+  background-color: white;
+  padding: 20px;
+  font-size: 0.8rem;
+}
+
+.app-wrapper {
+  display: grid;
+  width: 100%;
+
+  grid-template-areas:
+    'logo search'
+    'nav content';
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 2fr 10fr;
+}
+
+.app-wrapper-content {
+  grid-area: content;
+  background-color: $contentBgColor;
+  padding: 30px 70px;
+}
+
+.logo {
+  grid-area: logo;
+  background-color: $logoBgColor;
+  line-height: 60px;
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 1.05rem;
+  color: $mainColor;
+  padding: $sidePadding;
+}
+
+.navBar {
+  grid-area: nav;
+  background-color: $navBgColor;
+  & .navBar-item {
+    display: flex;
+    white-space: nowrap;
+    padding: $sidePadding;
+    height: 50px;
+    align-items: center;
+    text-decoration: none;
+    color: $mainColor;
+    & span {
+      &:first-child {
+        font-size: larger;
+      }
+    }
+    &:active {
+      background-color: darken($color: $navBgColor, $amount: 1);
+      box-shadow: inset 5px 0px $activeColor;
+    }
+    & span:first-child {
+      margin-right: 10px;
+      color: $iconColor;
+    }
+  }
+}
+
+.my-search-bar {
+  grid-area: search;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $sidePadding;
+  line-height: 60px;
+  & .search-bar-info {
+    display: flex;
+    align-items: center;
+    height: 40px;    
+    & .nav-small {
+      height: 30px;
+      position: relative;
+      padding: 0 20px 0 0;
+      display: flex;
+      align-items: center;
+      width: 100px;
+      justify-content: space-between;      
+      border-right: 1px solid $iconColor;
+      & div {
+        & a {
+          color: $iconColor;
+        }        
+      }
+      & .notification {
+        position: absolute;
+        right: 17px;
+        top: 5px;
+        width: 10px;
+        height: 10px;
+        background-color: orange;
+        border: 1px solid white;
+        border-radius: 50%;
+      }
+    }
+    & .user-info {
+      padding: 0 0 0 20px;
+      display: flex;
+      align-items: center;
+      width: 150px;
+      justify-content: space-between;
+      & .name {
+        font-size: 0.8rem;
+      }
+      & .show-info {
+        color: $iconColor;
+        font-size: 1.3rem;
+      }
+      & img {
+        height: 40px;
+        border-radius: 50px;
+      }
+    }
+  } 
+}
